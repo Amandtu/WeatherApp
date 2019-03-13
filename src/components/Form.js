@@ -1,13 +1,40 @@
-import React from "react";
+import React, { Component } from "react";
+import "../app.css";
 
-class Form extends React.Component {
+class Form extends Component {
+  constructor(props) {
+    super(props);
+  }
+  state = {
+    city: undefined,
+    country: undefined
+  };
+
   render() {
     return (
-      <div>
+      <div className="form">
         <form onSubmit={this.props.getWeather}>
-          <input type="text" name="city" placeholder="City..." />
-          <input type="text" name="country" placeholder="Country..." />
-          <button>Get Weather</button>
+          <label htmlFor="city">City</label>
+          <input
+            value={this.state.city}
+            onChange={event => {
+              this.setState({ city: event.target.value });
+            }}
+            type="text"
+            name="city"
+            placeholder="City..."
+          />
+          <label htmlFor="country">Country</label>
+          <input
+            value={this.state.country}
+            onChange={event => {
+              this.setState({ country: event.target.value });
+            }}
+            type="text"
+            name="country"
+            placeholder="Country..."
+          />
+          <button className="btn">Get Weather</button>
         </form>
       </div>
     );

@@ -1,0 +1,38 @@
+.app {
+  margin: auto;
+}
+
+.weather {
+  font-family: "Roboto";
+  margin: 10px;
+  color: yellow;
+  display: block;
+}
+
+.titles {
+  font-family: "Roboto";
+  padding-top: 5px;
+  margin-left: 20px;
+  color: yellowgreen;
+}
+
+.form {
+  font-family: "Roboto";
+  margin-left: 0px;
+}
+.btn {
+  cursor: pointer;
+  padding: 8px 16px;
+  margin-left: 10px;
+}
+input[type="text"] {
+  display: block;
+  padding: 8px 16px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+label {
+  padding-left: 10px;
+  color: cyan;
+  padding-top: 20px;
+}
