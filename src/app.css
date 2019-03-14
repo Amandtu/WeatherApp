@@ -122,4 +122,7 @@ button {
     margin-right: 10%;
     overflow: hidden;
   }
+  input::placeholder {
+    font-size: 14px;
+  }
 }
