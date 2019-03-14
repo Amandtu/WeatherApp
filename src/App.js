@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
-import "./app.css";
 
 const API_KEY = "b4e4d12af42a7afeb434cea020935a0a";
 const URL = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -45,7 +44,7 @@ class App extends Component {
           country: undefined,
           humidity: undefined,
           description: undefined,
-          error: api_call.statusText
+          error: "Invalid City or Country"
         });
       }
     } catch (err) {
@@ -55,17 +54,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <Titles />
-        <Form getWeather={this.getWeather} />
-        <Weather
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
+      <div className="main">
+        <div className="title-container">
+          <Titles />
+        </div>
+        <div className="form-container">
+          <Form getWeather={this.getWeather} />
+          <Weather
+            temperature={this.state.temperature}
+            city={this.state.city}
+            country={this.state.country}
+            humidity={this.state.humidity}
+            description={this.state.description}
+            error={this.state.error}
+          />
+        </div>
       </div>
     );
   }

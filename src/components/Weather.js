@@ -1,21 +1,36 @@
 import React from "react";
-import "../app.css";
 
 const Weather = props => {
-  if (props.error) return <p className="weather">{props.error}</p>;
-  else if (!props.city) return null;
-  else {
-    return (
-      <div className="weather">
-        <p>
-          Location: {props.city},{props.country}
+  const { city, country, temperature, humidity, description, error } = props;
+  return (
+    <div className="weather">
+      {city && country && (
+        <p className="weather-key">
+          Location:{" "}
+          <span className="weather-value">
+            {city},{country}
+          </span>
         </p>
-        <p>Temperature: {props.temperature}&#8451;</p>
-        <p>Humidity: {props.humidity}% </p>
-        <p>Conditions: {props.description}</p>
-      </div>
-    );
-  }
+      )}
+      {temperature && (
+        <p className="weather-key">
+          Temperature:{" "}
+          <span className="weather-value">{temperature}&#8451;</span>
+        </p>
+      )}
+      {humidity && (
+        <p className="weather-key">
+          Humidity: <span className="weather-value">{humidity}</span>
+        </p>
+      )}
+      {description && (
+        <p className="weather-key">
+          Condition: <span className="weather-value">{description}</span>
+        </p>
+      )}
+      {error && <p className="weather-error">{error}</p>}
+    </div>
+  );
 };
 
 export default Weather;
